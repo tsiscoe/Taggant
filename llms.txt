@@ -1,0 +1,24 @@
+# Taggant (`taggant` v0.1.0)
+
+> Pure-Rust 2024 (`#![forbid(unsafe_code)]`) asymmetric `Elligator2` honeytoken seeder, stateless offline leak autopsy engine, fleet sterility verifier, and stealth loopback HTTP tripwire.
+
+## Core Modules
+
+- `src/crypto/fe25519.rs`: Constant-time 5x51-bit `GF(2^255 - 19)` arithmetic (`Add`, `Sub`, `Neg`, `Mul`, `inv`, `sqrt`, `ct_select`, `ct_gt_le`).
+- `src/crypto/elligator.rs`: Curve25519 `Elligator2` forward map (`elligator2_decode`) and uniform two-branch ephemeral sampler (`elligator2_generate_ephemeral`).
+- `src/crypto/capsule.rs`: `64B` and `60B` HPKE-style `X25519` + `HKDF-SHA256` + `ChaCha20-Poly1305` provenance sealing and offline zero-DB opening.
+- `src/formats/mod.rs`: Fixed-width Base62, tableless IEEE `CRC32`, OpenSSH `openssh-key-v1` encoder/extractor, and 6 credential bait profiles.
+- `src/vault/mod.rs`: `Argon2id` + `XChaCha20-Poly1305` encrypted SQLite WAL vault (`rusqlite 0.42.0`), context tag resolver, and encrypted `BLAKE3` Merkle alert chain.
+- `src/ops/{seed,scan,watch}.rs`: Decoy `.env.staging` seeder (with stealth `INTERNAL_TELEMETRY_PING_URL`), `verify-fleet` credential classifier, and `127.0.0.1`-only HTTP decoy listener.
+- `src/tui/{mod,ui}.rs`: 3-pane `Ratatui v0.30` TEA console with `CWE-150` escape sanitization.
+
+## CLI Entrypoints
+
+- `taggant init [--export-pub <file>]`
+- `taggant mint --profile <openai-proj|anthropic-api|github-pat|openssh-key|github-classic|aws-iam-pair> [--pub-key <spec>]`
+- `taggant seed --target <dir_or_file> [--pub-key <spec>] [--with-tripwire-port <port>]`
+- `taggant autopsy <token_or_file> [--secret-key <hex_or_b64>] [--json]`
+- `taggant verify-fleet --dir <path> [--secret-key <hex_or_b64>] [--fail-on-any]`
+- `taggant watch --bind 127.0.0.1:19470`
+- `taggant tui [--autopsy-file <path>]`
+- `taggant export-key [--autopsy-secret]`
