@@ -5,7 +5,7 @@
 [![Rust: 2024 Edition](https://img.shields.io/badge/Rust-2024_Edition-orange.svg)](Cargo.toml)
 [![Safety: #![forbid(unsafe_code)]](https://img.shields.io/badge/unsafe-forbid-success.svg)](src/lib.rs)
 
-**Taggant** (`taggant`) is a pure-Rust (`#![forbid(unsafe_code)]`) **Asymmetric `Elligator2` Cryptographic Honeytoken Seeder, Stateless Offline Autopsy Engine, Fleet Sterility Gate, and Stealth Loopback Tripwire**.
+**Taggant** (`taggant`) is a pure-Rust (`#![forbid(unsafe_code)]`) decoy API-key seeder and leak tracer: it plants honeytoken keys that look 100% real to attackers, trips a silent local alarm when touched, and traces any leaked key back to the exact machine and minute it was minted.
 
 ---
 
