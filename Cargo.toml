@@ -26,7 +26,7 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 
 # Cryptography (X25519 + Custom Elligator2 + Argon2id + HKDF-SHA256 + BLAKE3 + XChaCha20-Poly1305 + Zeroize)
-x25519-dalek = { version = "2.0", features = ["static_secrets", "zeroize"] }
+x25519-dalek = { version = "3.0", features = ["static_secrets", "zeroize"] }
 argon2 = { version = "0.5", features = ["std"] }
 chacha20poly1305 = { version = "0.10", features = ["std"] }
 hkdf = "0.12"
